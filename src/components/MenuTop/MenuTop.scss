@@ -1,0 +1,54 @@
+@import "../../scss/index.scss";
+
+.menu-top{
+    display : flex;
+    position : relative;
+
+    &__collapsed{
+        color: $font-gray-light;
+    }
+
+    &__left-logo{
+        height: 30px;
+        width: 50px;
+        border-radius:  50%;
+        -webkit-border-radius:  50%;
+        -moz-border-radius:  50%;
+        -ms-border-radius:  50%;
+        -o-border-radius:  50%;
+}
+
+    &__logo-off{
+        color :$font-gray-light;
+    }
+
+    &__logo-off:hover{
+        color : $danger-color;
+    }
+
+    button{
+        color: $font-grey-dark;
+
+        &:hover{
+            color: $primary-color;
+        }
+
+        &:focus,
+        &:active{
+            color : $font-grey-dark;
+        }
+
+        &__left{
+            &-logo{
+                width : 80px;
+                padding : 0 10px;
+            }
+        }
+
+        &_right{
+            position: absolute;
+            right : 0;
+        }
+
+    }
+}

@@ -1,0 +1,29 @@
+@import '../scss/index.scss';
+
+.layout-basic{
+    height: 100vh;
+
+    &__header{
+        text-align: center;
+        background-color: $background-header;
+        position: relative;
+        color : $font-gray-light;
+        top : 0;
+        width : 100%;
+        height: 65px;
+    }
+
+    &__main{
+        background-color : $background-main;
+        overflow-y: auto;
+        padding : 0px 25px 25px 25px;
+    }
+
+    &__footer{
+        text-align: center;
+        background-color : $background-footer;
+        position : relative;
+        bottom : 0;
+        color : $font-gray-light;
+    }
+}

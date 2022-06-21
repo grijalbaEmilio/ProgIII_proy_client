@@ -1,0 +1,25 @@
+@import "./scss/index.scss";
+
+.App{
+    h1{
+        color : $primary_color;
+    }  
+}
+
+ .success{
+    border: $success-color;
+    background-color : $background-success;
+}
+
+.error{
+    //border: 1px solid $danger-color !important;
+    background-color: $background-danger !important;
+}
+
+body{
+    height : 100%;
+}
+
+#root{
+    height : 100%;
+}

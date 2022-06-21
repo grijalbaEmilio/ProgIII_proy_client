@@ -1,0 +1,49 @@
+$default-font-size : 16px;
+$primary-color : #2f694c;
+$primary-color-hover : #173526;
+
+$menu-color : #223122;
+
+$font-light : white;
+$font-gray-light: #e4e4e4;
+$font-gray : #8a8a8a;
+$font-gray-dark : #494545;
+$font-grey-dark : #494545;
+$font-dark : #0000;
+
+$warning-color : #ffc400;
+$danger-color : red;
+$success-color : #11ff00;
+$info-color : #00aaff;
+
+$background-warning : #ffd95b;
+$background-danger : #ffbebe;
+$background-info : #66ccff;
+$background-success : #7bff71;
+
+$warning-color-transparent : #a88f42cb;
+$danger-color-transparent : #854242d0;
+$success-color-transparent : #4d9948d5;
+$info-color-transparent : #307092d7;
+$font-gray-dark-transparent : #8b8b8b;
+
+$background-main : #ffffff;
+$background-header : #313638;
+$background-footer : #313638;
+
+$background-modal : rgba(14, 10, 34, 0.849);
+/* 
+breakpoints estandarizados
+
+Móviles: entre 320 y 480 px
+Tablets: entre 768 y 1024 px
+Pantallas grandes : más de 1200 px
+*/
+
+$media-breackpoint-up-xs : 320px;
+$media-breackpoint-up-sm : 576px;
+$media-breackpoint-up-md : 768px;
+$media-breackpoint-up-lg : 992px;
+$media-breackpoint-up-xl : 1200px;
+
+

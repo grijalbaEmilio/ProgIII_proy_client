@@ -1,0 +1,16 @@
+@import "../../scss/index.scss";
+
+.admin-sider {
+  background-color: $background-header;
+  opacity: 0.97;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 65px;
+  height: calc(100vh - 130px);
+  overflow: auto;
+  
+  &__options {
+    background-color: $background-header !important;
+  }
+}

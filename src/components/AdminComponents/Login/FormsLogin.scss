@@ -1,0 +1,98 @@
+@import "../../../scss/index.scss";
+
+.container-form-signUp {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ant-input-prefix {
+  margin: 0 10px 0 10px;
+}
+
+.form-login {
+  background-color: $font-light;
+  padding: 15px 15px 1% 15px;
+  border-radius: 25px;
+
+  &__input,
+  .ant-input {
+    background-color: $font-gray-light;
+    color: $font-gray;
+    border-radius: 30px;
+    padding: 7px 10px 7px 10px !important;
+    border: none;
+  }
+
+  &__item {
+    margin: 10px;
+  }
+
+  &__logoAdmin {
+    box-shadow: 0px 5px 5px 0px gray;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    transform: translateY(-70px);
+  }
+
+  &__TitleAdmin {
+    display: block;
+    margin: auto;
+    color: $font-gray;
+    text-align: center;
+    transform: translateY(-40px);
+  }
+
+  &__labelAdmin {
+    text-align: center;
+    margin: 5px 0 0 0;
+  }
+
+  &__content {
+    transform: translateY(0px);
+  }
+
+  &__button {
+    background-color: $font-light;
+    color: $info-color;
+    border-radius: 20px;
+    border: 2px solid $info-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+  }
+  &__button:hover {
+    background-color: $info-color;
+    border: 2px solid $info-color;
+    color: $font-light;
+  }
+  &__check{
+    color: $font-gray;
+    margin: 0 10px 0 10px;
+  }
+}
+
+@media (min-width: $media-breackpoint-up-md) {
+  .form-login {
+    padding: 25px 25px 1% 25px;
+
+    &__content {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &__content-izq {
+      width: 50%;
+      margin-right: 2.5%;
+    }
+    &__content-der {
+      width: 50%;
+      margin-left: 2.5%;
+    }
+  }
+}

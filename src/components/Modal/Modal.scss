@@ -1,0 +1,27 @@
+@import '../../scss/index.scss';
+
+.modal{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top : 0;
+    bottom : 0;
+    background-color: $background-modal;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content{
+        position: relative;
+        min-width: 300px;
+        min-height : 200px;
+        padding: 40px 20px 10px 20px;
+        background-color : white;
+        border-radius: 10px;
+    }
+    &__title{
+        width: auto;
+        text-align: center;
+    }
+}

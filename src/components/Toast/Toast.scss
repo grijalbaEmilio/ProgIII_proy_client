@@ -1,0 +1,39 @@
+@import "../../scss/index.scss";
+/* toast */
+
+@mixin degradado($color: $danger-color, $colorTrans: $danger-color-transparent){
+        background : linear-gradient(90deg,$font-gray-dark-transparent, $colorTrans);
+        padding : 10px 30px;
+        top:50px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius : 5px;
+        border-bottom: 4px solid;
+        border-bottom-color: $color;
+    
+    
+        .ant-notification-notice-message{
+            color:$color;
+            font-size: 1.3rem;
+        }
+    
+        .ant-notification-notice-description{
+            color: $font-light;
+            font-size: 1.2rem;
+        
+        }
+    
+    }
+
+
+.toast-danger{
+    @include degradado($danger-color, $danger-color-transparent)
+}
+.toast-warning{
+    @include degradado($warning-color, $warning-color-transparent)
+}
+.toast-success{
+    @include degradado($success-color, $success-color-transparent)
+}
+.toast-info{
+    @include degradado($info-color, $info-color-transparent)
+}

@@ -1,0 +1,68 @@
+@import '../../scss/index.scss';
+
+.login{
+    background-image: url('../../assetts/img/jpg/background1.jpg');
+    height: 100%;
+    padding-top: 100px;
+    overflow-y: auto;
+
+}
+
+.rerunHome{
+    position: absolute;
+    top : 10px;
+    right : 5px;
+    padding : 0px 10px;
+    font-size: 1.3rem;
+    border : 2px solid $info-color;
+    border-radius: 5px;
+    color : $info-color;
+    background-color: white;
+}
+
+.rerunHome:hover{
+    background-color: $info-color;
+    color : white;
+}
+
+.container{
+    display: block;
+    margin: auto;
+    background-color: #40454741;
+    border-radius: 15px;
+}
+
+.tab{
+    padding: 10px;
+    
+}
+
+.ant-tabs-tab{
+    width : 50%;
+    padding-left: 10px;
+    color: white;
+}
+
+.ant-tabs-nav-list{
+    width : 100%;
+}
+
+.ant-tabs-content-holder{
+    padding: 40px 0px 10px 0px;
+}
+
+@media (min-width : $media-breackpoint-up-sm){
+    .container{
+        width: 500px;
+    }
+}
+
+@media (min-width : $media-breackpoint-up-md){
+    .container{
+        width: 700px;
+    }
+    .ant-tabs-tab{
+        font-size: 1.5rem;
+    }
+    
+}

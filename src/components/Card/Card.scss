@@ -1,0 +1,19 @@
+@import "../../scss/index.scss";
+
+.card{
+    height: 307px;
+    margin: 5px 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.contenedor-cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px 0;
+    flex-wrap: wrap; 
+}
