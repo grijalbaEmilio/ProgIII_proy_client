@@ -1,7 +1,7 @@
 import { basePath, apiVersion } from "./config";
 
 export async function signUpApi(data) {
-  const url = `${basePath}/${apiVersion}/signup`;
+  const url = `${basePath}/${apiVersion}/users/signup`;
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -37,7 +37,7 @@ export async function signUpApi(data) {
 
 
 export async function signInApi(data) {
-  const url = `${basePath}/${apiVersion}/signin`;
+  const url = `${basePath}/${apiVersion}/users/signin`;
   const params = {
     method: "POST",
     body: JSON.stringify(data),
@@ -62,7 +62,7 @@ export async function signInApi(data) {
 }
 
 export function getUsers(token) {
-  const url = `${basePath}/${apiVersion}/users`;
+  const url = `${basePath}/${apiVersion}/users/users`;
   const params = {
     method: "GET",
     headers: {
@@ -83,7 +83,7 @@ export function getUsers(token) {
 }
 
 export function getActiveUsers(token, status) {
-  const url = `${basePath}/${apiVersion}/activeusers?active=${status}`;
+  const url = `${basePath}/${apiVersion}/users/activeusers?active=${status}`;
   const params = {
     method: "GET",
     headers: {
@@ -104,7 +104,7 @@ export function getActiveUsers(token, status) {
 }
 
 export function getAvatar(avatarName) {
-  const url = `${basePath}/${apiVersion}/getavatar/${avatarName}`;
+  const url = `${basePath}/${apiVersion}/users/getavatar/${avatarName}`;
 
   return fetch(url)
     .then(response => {
@@ -116,7 +116,7 @@ export function getAvatar(avatarName) {
 }
 
 export function activateUser(token, userId, status) {
-  const url = `${basePath}/${apiVersion}/activateuser/${userId}`;
+  const url = `${basePath}/${apiVersion}/users/activateuser/${userId}`;
 
   const params = {
     method: "PUT",
@@ -142,7 +142,7 @@ export function activateUser(token, userId, status) {
 }
 
 export function updateUser(token, user, userId) {
-  const url = `${basePath}/${apiVersion}/updateuser/${userId}`;
+  const url = `${basePath}/${apiVersion}/users/updateuser/${userId}`;
 
   const params = {
     method: "PUT",
@@ -166,7 +166,7 @@ export function updateUser(token, user, userId) {
 }
 
 export function deleteUser(token, userId) {
-  const url = `${basePath}/${apiVersion}/deleteuser/${userId}`;
+  const url = `${basePath}/${apiVersion}/users/deleteuser/${userId}`;
 
   const params = {
     method: "DELETE",
@@ -189,7 +189,7 @@ export function deleteUser(token, userId) {
 }
 
 export function uploadAvatar(token, avatar, userId) {
-  const url = `${basePath}/${apiVersion}/uploadavatar/${userId}`;
+  const url = `${basePath}/${apiVersion}/users/uploadavatar/${userId}`;
 
   const formData = new FormData();
   formData.append("avatar", avatar, avatar.name);
@@ -215,7 +215,7 @@ export function uploadAvatar(token, avatar, userId) {
 }
 
 export function signUpAdmin(token, data) {
-  const url = `${basePath}/${apiVersion}/signupadmin`;
+  const url = `${basePath}/${apiVersion}/users/signupadmin`;
 
   const params = {
     method: "POST",

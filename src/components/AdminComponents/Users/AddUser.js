@@ -18,8 +18,7 @@ export default function EditUser(props) {
   
 
   const addUser = (event) => {
-    event.preventDefault();
-    
+    event.preventDefault(); 
     if (
       !userData.name_user ||
       !userData.lastname ||
@@ -117,6 +116,7 @@ const AddForm = (props) => {
               <Option value="admin">Administrador</Option>
               <Option value="editor">Editor</Option>
               <Option value="reviwer">Revisor</Option>
+              <Option value="coordinator">Coordinador</Option>
             </Select>
           </Form.Item>
         </Col>

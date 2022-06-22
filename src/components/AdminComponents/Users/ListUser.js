@@ -19,6 +19,7 @@ import EditUserForm from "./EditUser";
 import AddUserForm from "./AddUser";
 import Modal from "../../Modal";
 import Toast from "../../Toast";
+import {userLogued} from '../../../api/auth'
 
 const { confirm } = ModalAntd;
 
@@ -32,6 +33,10 @@ export default function ListUsers(props) {
   const [modalContent, setModalContent] = useState(null);
 
   const addUserModal = () => {
+    if(userLogued().ROLE != 'admin'){
+      Toast({mode : "danger", message : "Usted no es administradro."})
+      return
+    }
     setIsVisibleModal(true);
     setModalTitle("Creando nuevo usuario");
     setModalContent(
@@ -97,6 +102,10 @@ function UsersActive(props) {
   } = props;
 
   const editUser = (user) => {
+    if(userLogued().ROLE != 'admin'){
+      Toast({mode : "danger", message : "Usted no es administradro."})
+      return
+    }
     setIsVisibleModal(true);
     setModalTitle(
       `Editar ${user.name_user ? user.name_user : "..."} ${
@@ -145,6 +154,11 @@ function UserActive(props) {
   const desactivateUser = () => {
     const accesToken = getAccessToken();
 
+    if(userLogued().ROLE != 'admin'){
+      Toast({mode : "danger", message : "Usted no es administradro."})
+      return
+    }
+
     activateUser(accesToken, user._id, false)
       .then((response) => {
         Toast( { title : "Exito !",mode : "success", message: response})
@@ -157,6 +171,10 @@ function UserActive(props) {
 
   const showDeleteConfirm = () => {
     const accesToken = getAccessToken();
+    if(userLogued().ROLE != 'admin'){
+      Toast({mode : "danger", message : "Usted no es administradro."})
+      return
+    }
 
     confirm({
       title: "Eliminando usuario",

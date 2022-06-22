@@ -20,7 +20,7 @@ export default function Modal({children}){
             top: '10px',
             right: '10px'
           }}/>
-          <h1 className='modal__title'>{title}</h1>
+          <h1 className='modal__title'>{title}</h1><br/>
           {content}
         </div>
      </div>

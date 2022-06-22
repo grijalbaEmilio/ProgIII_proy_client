@@ -198,6 +198,7 @@ function EditForm(props) {
               <Option value="admin">Administrador</Option>
               <Option value="editor">Editor</Option>
               <Option value="reviewer">Revisor</Option>
+              <Option value="coordinator">Coordinador</Option>
             </Select>
           </Form.Item>
         </Col>

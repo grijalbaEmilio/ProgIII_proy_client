@@ -10,6 +10,7 @@ import { getAccessToken, getRefreshToken } from "../api/auth";
 import useAuth from '../hooks/useAuth'
 import "./layoutAdmin.scss";
 import SignIn from "../pages/Admin/Login";
+import Users from '../pages/Admin/Users'
 
 
 
@@ -30,7 +31,13 @@ export default function Layoutadmin(props) {
       </SignIn>
     )
   }
-  // if(user.user && !isLoading){
+  /* if(user && !isLoading && localStorage.getItem('ROLE') != 'admin'){
+    return (
+      <Users/>
+    )
+
+  } */
+
   if (user && !isLoading) {
     //console.log('user poro no logueado');
     return (

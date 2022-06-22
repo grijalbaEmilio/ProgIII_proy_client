@@ -10,6 +10,7 @@ import Users from '../pages/Admin/Users'
 import mongo from "../pages/tecnologies/mongo";
 import node from "../pages/tecnologies/node";
 import react from "../pages/tecnologies/react";
+import Subjects from "../pages/Admin/Subjects";
 
 import scss from "../pages/tecnologies/scss";
 
@@ -25,6 +26,11 @@ const routesAdmin = [
   },{
     path : "/admin/users",
     component : Users,
+    layout : LayoutAdmin
+  },
+  {
+    path : "/admin/subjects",
+    component : Subjects,
     layout : LayoutAdmin
   },
   {

@@ -5,6 +5,7 @@ import { LockFilled, MailFilled } from "@ant-design/icons";
 import Toast from "../../Toast";
 import {signInApi} from "../../../api/user"
 import {emailValidation, minLengthValidation} from '../../../validations/FormValidation'
+import {userLogued} from '../../../api/auth'
 
 import "./FormsLogin.scss";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../../api/constants";
@@ -56,7 +57,7 @@ export default function SignUpForm() {
           const { accessToken, refeshToken } = result
           localStorage.setItem(ACCESS_TOKEN, accessToken)
           localStorage.setItem(REFRESH_TOKEN, refeshToken)
-
+          userLogued()
           resetForm();
           //Toast({title : 'Exito !', message:" Login correcto", mode:'success'});
           window.location.reload()

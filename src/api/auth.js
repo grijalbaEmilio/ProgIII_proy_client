@@ -4,9 +4,10 @@ import { basePath, apiVersion } from "./config"
 
 export function userLogued(){
     const accessToken = localStorage.getItem(ACCESS_TOKEN);
-    const {user_name, lastname} = jwtDecode(accessToken)
-    return {name : user_name, lastname : lastname}
+    const {user_name, lastname, role} = jwtDecode(accessToken)
+    return {name : user_name, lastname : lastname, ROLE : role}
 }
+
 
 export function getAccessToken() {
     const accessToken = localStorage.getItem(ACCESS_TOKEN);

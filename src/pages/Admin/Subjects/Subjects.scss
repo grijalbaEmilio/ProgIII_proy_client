@@ -1,0 +1,61 @@
+@import '../../../scss/index.scss';
+
+Button{
+    margin-right: 10px;
+}
+
+.subjects{
+
+    
+    &__conntent{
+        display: block;
+        margin: auto;
+
+        &__info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom : 10px;
+    
+            &__initialName{
+                width: 30px;
+                height : 30px;
+                padding : 5px;
+                border-radius: 50%;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                text-align: center;
+                background-color: $background-header;
+                color : white;
+                margin-right : 15px;
+            }
+    
+            &__name{
+                font-style: italic;
+            }
+    
+        }
+    }
+
+    Button{
+        margin : 0 5px 0 5px;
+    }
+
+    Modal{
+        opacity: 0.4;
+    }
+}
+
+
+@media (min-width : 550px){
+
+    .subjects{
+        &__conntent{
+            display: flex;
+            flex-direction: row;    
+            justify-content: space-between;
+            width : 100%;
+        }
+        
+
+    }
+}

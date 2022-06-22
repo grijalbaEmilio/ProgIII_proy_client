@@ -1,9 +1,10 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import { HomeOutlined, MenuOutlined, UserOutlined } from "@ant-design/icons";
+import { HomeOutlined, ReadOutlined, UserOutlined } from "@ant-design/icons";
 import Modal from "../Modal";
 import "./MenuSider.scss";
+import userLogued from '../../api/auth'
 
 export default function MenuSider(props) {
   const { menuCollapsed } = props;
@@ -12,13 +13,13 @@ export default function MenuSider(props) {
   const location = useLocation()
   return (
     <>
-      {modal ?<Modal>{{setModal}}</Modal>:null}
+      {modal ? <Modal>{{ setModal }}</Modal> : null}
       <Sider className="admin-sider" collapsed={menuCollapsed}>
         <Menu
           theme="dark"
           className="admin-sider__options"
           mode="inline"
-          /* defaultSelectedKeys={["/"]} */
+        /* defaultSelectedKeys={["/"]} */
         >
           <Menu.Item className="admin-sider__options__option" key="/">
             <Link to={"/"}>
@@ -40,13 +41,16 @@ export default function MenuSider(props) {
               <span className="nav-text">Usuarios</span>
             </Link>
           </Menu.Item>
-          
-          <Menu.Item onClick={()=>setModal(true)} className="admin-sider__options__option" key="2" >
-              <MenuOutlined  />
-              <span className="mav-text">Menu web</span>
-              
+
+          <Menu.Item className="admin-sider__options__option" key="2" >
+
+            <Link to={"/admin/subjects"}>
+              <ReadOutlined />
+              <span className="nav-text">Usuarios</span>
+            </Link>
+
           </Menu.Item>
-          
+
         </Menu>
       </Sider>
     </>

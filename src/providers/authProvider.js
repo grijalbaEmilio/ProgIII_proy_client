@@ -1,4 +1,6 @@
 import React, { useState, useEffect, createContext } from "react"
+import { getSubjects } from "../api/subjects"
+
 import {
     getAccessToken,
     getRefreshToken,
@@ -10,11 +12,13 @@ import jwtDecode from "jwt-decode"
 export const AuthContext = createContext({})
 
 export default function AuthProvider(props) {
+    getSubjects()
     //console.log('en provider -->', props);
     const { children } = props
     const [user, setUser] = useState({
         user: null,
-        isLoanding: true
+        isLoanding: true,
+        subjects : null
     })
     useEffect(() => {
         chekUserLogin(setUser)
