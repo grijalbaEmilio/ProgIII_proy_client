@@ -15,7 +15,7 @@ import CreateSubject from './CreateSubject';
 import UpdateSubject from './UpdateSubject';
 import { userLogued } from '../../../api/auth';
 import Toast from '../../Toast'
-import './ReadSubject.scss'
+import './StylesSubjects.scss'
 
 
 export default function ListSubject({children}){
@@ -83,7 +83,6 @@ export default function ListSubject({children}){
             }
         })
         if(piaFilter == 0){
-            console.log(0);
             return subjects
         }else{
             return filt
@@ -101,7 +100,7 @@ export default function ListSubject({children}){
             <div>
                 <UpdateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs, subject : data}}</UpdateSubject>
             </div>,
-            title: "¡ Crear nueva asignatura !"
+            title: "Actualizando \""+data['academic_activity']+'"'
         })
         setModal(true)
 

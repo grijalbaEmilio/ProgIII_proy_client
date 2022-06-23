@@ -86,8 +86,6 @@ export function updateSubject(data, code){
     },
   };
 
-  console.log(data);
-
   return fetch(url, params)
     .then((response) => {
       return response.json();

@@ -1,0 +1,121 @@
+@import '../../../scss/index.scss';
+
+td{
+    border : 1px solid rgb(163, 163, 163);
+    padding : 3px;
+}
+
+.headerListSubject{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    &__filterPia{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 10px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px 5px rgb(197, 197, 197);
+        &__label{
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        &__input{
+            width : 50px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+}
+
+.subjects{
+    &__conntent{
+        display: block;
+        margin: auto;
+
+        &__info{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom : 10px;
+    
+            &__initialName{
+                width: 30px;
+                height : 30px;
+                padding : 5px;
+                border-radius: 50%;
+                font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                text-align: center;
+                background-color: $background-header;
+                color : white;
+                margin-right : 15px;
+            }
+    
+            &__name{
+                font-style: italic;
+            }
+    
+        }
+    }
+
+    Button{
+        margin : 0 5px 0 5px;
+    }
+
+    Modal{
+        opacity: 0.4;
+    }
+}
+
+
+@media (min-width : 550px){
+
+    .subjects{
+        &__conntent{
+            display: flex;
+            flex-direction: row;    
+            justify-content: space-between;
+            width : 100%;
+        }
+        
+
+    }
+}
+
+.infoSubject{
+    margin-bottom: 20px;
+    overflow-y: auto;
+    &__content{
+        margin-bottom : 10px;
+        &__header{
+            margin-bottom: 5px;
+            width : 100%;
+            display: flex;
+            justify-content: space-between;
+            
+
+            &__input{
+                width: 200px !important;
+                margin-right: 10px;
+            }
+
+            &__input-2{
+                width: 95px !important;
+                margin-right: 10px;
+            }
+        }
+        input{
+            border: none;
+            background-color: rgb(241, 240, 240);
+            color: rgb(85, 85, 85);
+            border-radius: 5px;
+            padding: 2px 5px 2px 5px;
+            width: 50px;
+            
+        }
+    }
+}

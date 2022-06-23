@@ -65,16 +65,32 @@ export default function CreateSubject({children}) {
     }
 
     return (
-        <div>
-            <div>
+        <div className="infoSubject">
+            <div className="infoSubject__content">
                 <div>
-                    <b>Departameto</b>: <input name="department" onChange={updateForm} type={'text'}></input> <br />
-                    <b>Actividad académica</b>: <input name="academic_activity" onChange={updateForm} type={'text'} ></input><br />
-                    <b>Código</b>: <input name="activity_code" onChange={updateForm} type={'text'} ></input> <br />
-                    <b>Créditos</b>: <input name="number_credits" onChange={updateForm} type={'number'} min="0" ></input> <br />
-                    <b>Versión del PIAA</b>: <input name="piaa_version" onChange={updateForm} type={'number'} min="0" ></input> <br />
-                    <b>Número de acta</b>: <input name="month_file" onChange={updateForm} type={'number'} min="0" ></input>-<input name="year_file" onChange={updateForm} type={'number'} min="0" ></input><br />
-                    <b>Fecha de acta</b>: <input name="file_date" onChange={updateForm} type={'date'} ></input><br /><br />
+                    <div className="infoSubject__content__header">
+                        <b>Departameto :</b> <input className="infoSubject__content__header__input" name="department" onChange={updateForm} type={'text'}></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Actividad académica :</b> <input className="infoSubject__content__header__input" name="academic_activity" onChange={updateForm} type={'text'} ></input>
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Código :</b> <input className="infoSubject__content__header__input" name="activity_code" onChange={updateForm} type={'text'} ></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Créditos :</b> <input className="infoSubject__content__header__input" name="number_credits" onChange={updateForm} type={'number'} min="0" ></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Versión del PIAA :</b> <input className="infoSubject__content__header__input" name="piaa_version" onChange={updateForm} type={'number'} min="0" ></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Número de acta :</b> <div>
+                            <input className="infoSubject__content__header__input-2" name="month_file" onChange={updateForm} type={'number'} min="0" ></input><input className="infoSubject__content__header__input-2" name="year_file" onChange={updateForm} type={'number'} min="0" ></input>
+                        </div>
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Fecha de acta : </b> <input className="infoSubject__content__header__input"  name="file_date" onChange={updateForm} type={'date'} ></input>
+                    </div>
 
                 </div>
                 <table>
@@ -113,7 +129,8 @@ export default function CreateSubject({children}) {
 
                 </table>
             </div>
-            <Button type="primary" onClick={() => {
+
+            <Button className="infoSubject__button" type="primary" onClick={() => {
                 postSubject(formSubject).then((data) => {
                     if(data.message){
                         Toast({mode : "danger", message : data.message})
@@ -130,6 +147,13 @@ export default function CreateSubject({children}) {
             }
             }>
                 Crear
+            </Button>
+
+            <Button className="infoSubject__button" type="danger" onClick={() => {
+               setModal(false)
+            }
+            }>
+                Cancelar
             </Button>
 
         </div>

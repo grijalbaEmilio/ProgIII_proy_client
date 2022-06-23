@@ -1,4 +1,4 @@
-import './ReadSubject.scss'
+import './StylesSubjects.scss'
 export default function ReadSubject({ children }) {
     const { subjects, code } = children
 

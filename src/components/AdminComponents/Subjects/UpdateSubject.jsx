@@ -3,6 +3,7 @@ import { updateSubject } from '../../../api/subjects'
 import { Button } from "antd";
 import { getSubjects } from '../../../api/subjects';
 import Toast from '../../Toast'
+import "./StylesSubjects.scss"
 export default function({children}){
     const {setModal, getRenderSubjecs, subject } = children
     const [formSubject, setformSubect] = useState(
@@ -65,49 +66,66 @@ export default function({children}){
     }
 
     return (
-        <div>
-            <div>
+        <div className="infoSubject">
+            <div className="infoSubject__content">
                 <div>
-                    <b>Departameto</b>: <input name="department" onChange={updateForm} type={'text'} defaultValue={subject.department}></input> <br />
-                    <b>Actividad académica</b>: <input defaultValue={subject.academic_activity}name="academic_activity" onChange={updateForm} type={'text'} ></input><br />
-                    <b>Código</b>: <input defaultValue={subject.activity_code} name="activity_code" onChange={updateForm} type={'text'} ></input> <br />
-                    <b>Créditos</b>: <input defaultValue={subject.number_credits} name="number_credits" onChange={updateForm} type={'number'} min="0" ></input> <br />
-                    <b>Versión del PIAA</b>: <input defaultValue={subject.piaa_version} name="piaa_version" onChange={updateForm} type={'number'} min="0" ></input> <br />
-                    <b>Número de acta</b>: <input defaultValue={subject.file_number.month_file} name="month_file" onChange={updateForm} type={'number'} min="0" ></input>-<input defaultValue={subject.file_number.year_file} name="year_file" onChange={updateForm} type={'number'} min="0" ></input><br />
-                    <b>Fecha de acta</b>: <input defaultValue={new Date(subject.file_date)} name="file_date" onChange={updateForm} type={'date'} ></input><br /><br />
+                    <div className="infoSubject__content__header">
+                        <b>Departameto :</b> <input className="infoSubject__content__header__input"  name="department" onChange={updateForm} type={'text'} defaultValue={subject.department}></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Actividad académica :</b> <input className="infoSubject__content__header__input"  defaultValue={subject.academic_activity}name="academic_activity" onChange={updateForm} type={'text'} ></input>
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Código :</b> <input className="infoSubject__content__header__input"  defaultValue={subject.activity_code} name="activity_code" onChange={updateForm} type={'text'} ></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Créditos :</b> <input className="infoSubject__content__header__input"  defaultValue={subject.number_credits} name="number_credits" onChange={updateForm} type={'number'} min="0" ></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Versión del PIAA :</b> <input className="infoSubject__content__header__input"  defaultValue={subject.piaa_version} name="piaa_version" onChange={updateForm} type={'number'} min="0" ></input> 
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Número de acta :</b>
+                        <div className="">
+                            <input className="infoSubject__content__header__input-2"  defaultValue={subject.file_number.month_file} name="month_file" onChange={updateForm} type={'number'} min="0" ></input><input className="infoSubject__content__header__input-2"  defaultValue={subject.file_number.year_file} name="year_file" onChange={updateForm} type={'number'} min="0" ></input>
+                        </div>
+                    </div>
+                    <div className="infoSubject__content__header">
+                        <b>Fecha de acta :</b> <input className="infoSubject__content__header__input"  defaultValue={new Date(subject.file_date)} name="file_date" onChange={updateForm} type={'date'} ></input>
+                    </div>
 
                 </div>
                 <table>
                     <tbody>
                         <tr>
                             <td>Horas Teóricas</td>
-                            <td><input defaultValue={subject.theory_hours} name="theory_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input   defaultValue={subject.theory_hours} name="theory_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
                             <td>Horas prácticas</td>
-                            <td><input defaultValue={subject.practical_hours} name="practical_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input   defaultValue={subject.practical_hours} name="practical_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
                         </tr>
                         <tr>
                             <td>Horas no presenciales</td>
-                            <td><input defaultValue={subject.offsite_hours} name="offsite_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input   defaultValue={subject.offsite_hours} name="offsite_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
                             <td>Horas presenciales profesor</td>
-                            <td><input defaultValue={subject.presential_teacher_hours} name="presential_teacher_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input   defaultValue={subject.presential_teacher_hours} name="presential_teacher_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
                         </tr>
                         <tr>
                             <td>Horas inasistencia de repruebe</td>
-                            <td><input defaultValue={subject.hourson_attendence_reprovals} name="hourson_attendence_reprovals" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input   defaultValue={subject.hourson_attendence_reprovals} name="hourson_attendence_reprovals" onChange={updateForm} type={'Number'} min="0" ></input></td>
                             <td>Cupos máximos</td>
-                            <td><input defaultValue={subject.maximum_quotas} name="maximum_quotas" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input   defaultValue={subject.maximum_quotas} name="maximum_quotas" onChange={updateForm} type={'Number'} min="0" ></input></td>
                         </tr>
                         <tr>
                             <td>Habilitable</td>
                             <td><select defaultValue={subject.last_chance} name="last_chance" onChange={updateForm}><option defaultValue="true" key="1">SÍ</option><option defaultValue="false" key="2">NO</option></select></td>
                             <td>Nota aprobatoria</td>
-                            <td><input defaultValue={subject.passing_score} name="passing_score" onChange={updateForm} type="number" /></td>
+                            <td><input   defaultValue={subject.passing_score} name="passing_score" onChange={updateForm} type="number" /></td>
                         </tr>
                         <tr>
                             <td>Dutación en semestres</td>
-                            <td><input defaultValue={subject.duration_semester} name="duration_semester" onChange={updateForm} type="number" /></td>
+                            <td><input   defaultValue={subject.duration_semester} name="duration_semester" onChange={updateForm} type="number" /></td>
                             <td>Duración en semanas</td>
-                            <td><input defaultValue={subject.weeks_duration} name="weeks_duration" onChange={updateForm} type="number" /></td>
+                            <td><input   defaultValue={subject.weeks_duration} name="weeks_duration" onChange={updateForm} type="number" /></td>
                         </tr>
                     </tbody>
 
@@ -130,6 +148,13 @@ export default function({children}){
             }
             }>
                 Actualizar
+            </Button>
+
+            <Button className="infoSubject__button" type="danger" onClick={() => {
+               setModal(false)
+            }
+            }>
+                Cancelar
             </Button>
 
         </div>
