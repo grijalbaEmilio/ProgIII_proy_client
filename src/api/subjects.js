@@ -73,3 +73,41 @@ export function postSubject(data){
     });
 
 }
+
+export function updateSubject(data, code){
+
+  const url = `${basePath}/${apiVersion}/subjects/updateSubject/${code}`;
+
+  const params = {
+    method: "PUT",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  console.log(data);
+
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.user) {
+        return {
+          message: "asignatura actualizada.",
+        };
+      } else {
+        return {
+          message: result.message,
+        };
+      }
+    })
+    .catch((err) => {
+      return {
+        message: err.message,
+      };
+    });
+
+
+}

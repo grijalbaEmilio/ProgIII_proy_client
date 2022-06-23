@@ -12,6 +12,9 @@ import {
 import Modal from '../../Modal'
 import ReadSubject from './ReadSubject';
 import CreateSubject from './CreateSubject';
+import UpdateSubject from './UpdateSubject';
+import { userLogued } from '../../../api/auth';
+import Toast from '../../Toast'
 import './ReadSubject.scss'
 
 
@@ -29,6 +32,10 @@ export default function ListSubject({children}){
     }
 
     const deleteOneSubject = async (id, name) =>{
+        if(userLogued().ROLE != 'admin' && userLogued().ROLE != 'coordinator'){
+            Toast({mode : "danger", message : "Usted no es administrador ni coordinador."})
+            return
+          }
         setContentModal({
             content: <div>
                 <Button type="primary" onClick={() => setModal(false)}>
@@ -40,7 +47,8 @@ export default function ListSubject({children}){
                         setTimeout(() => {
                             getRenderSubjecs(true)
                             setModal(false)
-                        }, 300);
+                            Toast({mode : "success", message: "Asignatura emiminada !"})
+                        }, 2500);
                     }
                     )
                 }
@@ -54,6 +62,10 @@ export default function ListSubject({children}){
     }
 
     const createSubject = () => {
+        if(userLogued().ROLE != 'admin' && userLogued().ROLE != 'coordinator'){
+            Toast({mode : "danger", message : "Usted no es administradro ni coordinador."})
+            return
+          }
         setContentModal({   
             content: 
             <div>
@@ -70,12 +82,29 @@ export default function ListSubject({children}){
                 return element
             }
         })
+        if(piaFilter == 0){
+            console.log(0);
+            return subjects
+        }else{
+            return filt
+        }          
+    }
 
-        setTimeout(() => {
-            getRenderSubjecs(filt)
-        }, 200);
 
-    
+    const updateOneSubject = async(data) =>{
+        if(userLogued().ROLE != 'admin' && userLogued().ROLE != 'coordinator'){
+            Toast({mode : "danger", message : "Usted no es administradro ni coordinador."})
+            return
+          }
+        setContentModal({   
+            content: 
+            <div>
+                <UpdateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs, subject : data}}</UpdateSubject>
+            </div>,
+            title: "¡ Crear nueva asignatura !"
+        })
+        setModal(true)
+
     }
 
     return (
@@ -87,17 +116,21 @@ export default function ListSubject({children}){
             </Button>
 
             <div className='headerListSubject__filterPia'>
-                <Button className='headerListSubject__filterPia__label' type="primary" onClick={filterPiaaVersion}>
-                Filtrar por PIAA
-                </Button>
-                <input className='headerListSubject__filterPia__input' onChange={(e)=> setPiaFilter(e.target.value)} defaultValue={1} type="number" min={1}/></div>
+                <div className='headerListSubject__filterPia__label'>
+                <i> <b>Filtrar por PIAA</b> </i>
+                </div>
+                <div>
+                <input className='headerListSubject__filterPia__input' onChange={(e)=> setPiaFilter(e.target.value)} defaultValue={0} type="number" min={0}/></div>
+                </div>
+                
+                
             </div>
             
             
             <List
                 className="subjects"
                 itemLayout="horizontal"
-                dataSource={subjects}
+                dataSource={filterPiaaVersion()}
                 renderItem={(subject) => (
                     <List.Item>
                         <div className='subjects__conntent'>
@@ -117,7 +150,7 @@ export default function ListSubject({children}){
                                     <FullscreenOutlined />
                                 </Button>
                                 {/* botón de editar */}
-                                <Button name={subject.activity_code} type="primary" onClick={() => null}>
+                                <Button name={subject.activity_code} type="primary" onClick={() => updateOneSubject(subject)}>
                                     <EditOutlined />
                                 </Button>
                                 {/* botón de eliminar */}

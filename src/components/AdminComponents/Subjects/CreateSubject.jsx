@@ -21,7 +21,7 @@ export default function CreateSubject({children}) {
             "theory_hours": 0,
             "offsite_hours": 0,
             "hourson_attendence_reprovals": 0,
-            "last_chance": false,
+            "last_chance": true,
             "duration_semester": 0,
             "practical_hours": 10,
             "presential_teacher_hours": 0,
@@ -61,7 +61,7 @@ export default function CreateSubject({children}) {
                 })
             }
         }
-        console.log(formSubject);
+        
     }
 
     return (
@@ -83,7 +83,7 @@ export default function CreateSubject({children}) {
                             <td>Horas Teóricas</td>
                             <td><input name="theory_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
                             <td>Horas prácticas</td>
-                            <td><input name="offsite_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
+                            <td><input name="practical_hours" onChange={updateForm} type={'Number'} min="0" ></input></td>
                         </tr>
                         <tr>
                             <td>Horas no presenciales</td>
@@ -113,7 +113,7 @@ export default function CreateSubject({children}) {
 
                 </table>
             </div>
-            <Button type="prinary" onClick={() => {
+            <Button type="primary" onClick={() => {
                 postSubject(formSubject).then((data) => {
                     if(data.message){
                         Toast({mode : "danger", message : data.message})
@@ -122,7 +122,8 @@ export default function CreateSubject({children}) {
                         setTimeout(() => {
                             getRenderSubjecs(true)
                             setModal(false)
-                        }, 300);
+                            Toast({mode : "success", message: "Asignatura creada !"})
+                        }, 2500);
                     }
                 }
                 )
