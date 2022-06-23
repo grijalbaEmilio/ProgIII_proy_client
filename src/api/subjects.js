@@ -38,3 +38,38 @@ export function deleteSubject(id){
     return err.message;
   });
 }
+
+export function postSubject(data){
+
+  const url = `${basePath}/${apiVersion}/subjects/createSubject`;
+  
+  const params = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.user) {
+        return {
+          message: "asignatura creada exitosamente.",
+        };
+      } else {
+        return {
+          message: result.message,
+        };
+      }
+    })
+    .catch((err) => {
+      return {
+        message: err.message,
+      };
+    });
+
+}

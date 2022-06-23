@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { deleteSubject } from '../../../api/subjects'
 import { List, Button } from "antd";
+import { getSubjects } from '../../../api/subjects';
 import {
     EditOutlined,
     PlusCircleFilled,
@@ -11,11 +12,13 @@ import {
 import Modal from '../../Modal'
 import ReadSubject from './ReadSubject';
 import CreateSubject from './CreateSubject';
-import { getSubjects } from '../../../api/subjects';
+import './ReadSubject.scss'
 
-export default function({children}){
+
+export default function ListSubject({children}){
     const {subjects, getRenderSubjecs} = children
     const [modal, setModal] = useState(false)
+    const [piaFilter, setPiaFilter] = useState(0)
     const [contentModal, setContentModal] = useState({
         content: null, title: null
     })
@@ -51,46 +54,51 @@ export default function({children}){
     }
 
     const createSubject = () => {
-        setContentModal({
-            content: <div>
-                <Button type="primary" onClick={() => setModal(false)}>
-                    Cancelar
-                </Button>
-                <Button type="danger" onClick={() => {
-                    deleteSubject(id).then((data)=>{
-                        getSubjects()
-                        setTimeout(() => {
-                            getRenderSubjecs(true)
-                            setModal(false)
-                        }, 300);
-                    }
-                    )
-                }
-                }>
-                    Eliminar
-                </Button>
+        setContentModal({   
+            content: 
+            <div>
+                <CreateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs}}</CreateSubject>
             </div>,
-            title: "Crear "
+            title: "¡ Crear nueva asignatura !"
         })
-
+        setModal(true)
     }
 
+    const filterPiaaVersion = ()=>{
+        const filt = subjects.filter((element)=>{
+            if(element.piaa_version == piaFilter){
+                return element
+            }
+        })
 
+        setTimeout(() => {
+            getRenderSubjecs(filt)
+        }, 200);
+
+    
+    }
 
     return (
         <div>
             {modal ? <Modal>{{ "setModal": setModal, "content": contentModal.content, "title": contentModal.title }}</Modal> : null}
-            <Button type="primary" onClick={() => null}>
+            <div className='headerListSubject'>
+            <Button type="primary" onClick={() => createSubject()}>
                 <PlusCircleFilled />
             </Button>
+
+            <div className='headerListSubject__filterPia'>
+                <Button className='headerListSubject__filterPia__label' type="primary" onClick={filterPiaaVersion}>
+                Filtrar por PIAA
+                </Button>
+                <input className='headerListSubject__filterPia__input' onChange={(e)=> setPiaFilter(e.target.value)} defaultValue={1} type="number" min={1}/></div>
+            </div>
+            
             
             <List
                 className="subjects"
                 itemLayout="horizontal"
                 dataSource={subjects}
                 renderItem={(subject) => (
-
-
                     <List.Item>
                         <div className='subjects__conntent'>
                             <div className='subjects__conntent__info'>

@@ -1,5 +1,23 @@
 td{
     border : 1px solid rgb(163, 163, 163);
     padding : 3px;
-    
+}
+
+.headerListSubject{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    &__filterPia{
+        &__label{
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        &__input{
+            width : 50px;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
 }
