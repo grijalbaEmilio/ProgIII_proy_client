@@ -1,5 +1,27 @@
 @import '../scss/index.scss';
 
-.imagenHome{
-    width : 100%
+.home-main{
+    display: block;
+    margin: auto;
+    padding: 0 20%;
+}
+
+p{
+    font-size: 1.1rem;
+    color : #383737
+}
+
+h4, h1{
+    font-size: 1.5rem;
+    color :#000000
+}
+
+.user-admin{
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow : 1px 1px 2px 2px rgb(73, 73, 73);
+    width: auto;
+    display: block;
+    margin: 20px auto;
+    overflow: auto;
 }

@@ -4,7 +4,7 @@ import { Button } from "antd";
 import { getSubjects } from '../../../api/subjects';
 import Toast from '../../Toast'
 export default function CreateSubject({children}) {
-    const {setModal, getRenderSubjecs} = children
+    const {setModal, getRenderSubjecs, valueSubjects} = children
     const [formSubject, setformSubect] = useState(
         {
             "department": null,
@@ -137,10 +137,10 @@ export default function CreateSubject({children}) {
                     }else{
                         getSubjects()
                         setTimeout(() => {
-                            getRenderSubjecs(true)
+                            getRenderSubjecs(!valueSubjects)
                             setModal(false)
                             Toast({mode : "success", message: "Asignatura creada !"})
-                        }, 2500);
+                        }, 500);
                     }
                 }
                 )

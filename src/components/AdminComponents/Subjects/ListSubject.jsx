@@ -19,7 +19,7 @@ import './StylesSubjects.scss'
 
 
 export default function ListSubject({children}){
-    const {subjects, getRenderSubjecs} = children
+    const {subjects, getRenderSubjecs, valueSubjects} = children
     const [modal, setModal] = useState(false)
     const [piaFilter, setPiaFilter] = useState(0)
     const [contentModal, setContentModal] = useState({
@@ -45,10 +45,10 @@ export default function ListSubject({children}){
                     deleteSubject(id).then((data)=>{
                         getSubjects()
                         setTimeout(() => {
-                            getRenderSubjecs(true)
+                            getRenderSubjecs(!valueSubjects)
                             setModal(false)
                             Toast({mode : "success", message: "Asignatura emiminada !"})
-                        }, 2500);
+                        }, 500);
                     }
                     )
                 }
@@ -69,7 +69,7 @@ export default function ListSubject({children}){
         setContentModal({   
             content: 
             <div>
-                <CreateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs}}</CreateSubject>
+                <CreateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs, valueSubjects : valueSubjects}}</CreateSubject>
             </div>,
             title: "¡ Crear nueva asignatura !"
         })
@@ -98,7 +98,7 @@ export default function ListSubject({children}){
         setContentModal({   
             content: 
             <div>
-                <UpdateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs, subject : data}}</UpdateSubject>
+                <UpdateSubject>{{setModal : setModal, getRenderSubjecs : getRenderSubjecs, subject : data, valueSubjects : valueSubjects}}</UpdateSubject>
             </div>,
             title: "Actualizando \""+data['academic_activity']+'"'
         })

@@ -1,16 +1,15 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { HomeOutlined, ReadOutlined, UserOutlined } from "@ant-design/icons";
 import Modal from "../Modal";
 import "./MenuSider.scss";
-import userLogued from '../../api/auth'
 
 export default function MenuSider(props) {
   const { menuCollapsed } = props;
   const { Sider } = Layout;
   const [modal, setModal] = useState(false)
-  const location = useLocation()
+
   return (
     <>
       {modal ? <Modal>{{ setModal }}</Modal> : null}
@@ -31,7 +30,7 @@ export default function MenuSider(props) {
           <Menu.Item className="admin-sider__options__option" key="/admin">
             <Link to={"/admin"}>
               <UserOutlined />
-              <span className="nav-text">Administrador</span>
+              <span className="nav-text">Inicio usuario</span>
             </Link>
           </Menu.Item>
 
@@ -42,11 +41,11 @@ export default function MenuSider(props) {
             </Link>
           </Menu.Item>
 
-          <Menu.Item className="admin-sider__options__option" key="2" >
+          <Menu.Item className="admin-sider__options__option" key="/admin/subjects" >
 
             <Link to={"/admin/subjects"}>
               <ReadOutlined />
-              <span className="nav-text">Usuarios</span>
+              <span className="nav-text">Asignaturas</span>
             </Link>
 
           </Menu.Item>

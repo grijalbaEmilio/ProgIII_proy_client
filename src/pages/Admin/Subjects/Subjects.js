@@ -1,18 +1,37 @@
-import React, {useState} from 'react'
-import { arraySubjects, getSubjects } from '../../../api/subjects'
+import React, {useState, useEffect} from 'react'
+import { getSubjects } from '../../../api/subjects'
 import ListSubject from '../../../components/AdminComponents/Subjects/ListSubject'
+import {LoadingOutlined} from '@ant-design/icons'
 
 import './Subjects.scss'
 
 export default function Subjects() {
     
-    const subjects = arraySubjects()
     const [renderSubjecs, getRenderSubjecs] = useState(false)
+    const [subjects, setSubjects] = useState(null)
+ 
+   
+
+    useEffect(()=> {
+        getSubjects().then((data)=>{
+            if (JSON.stringify(data.data) != JSON.stringify(subjects)){
+                setSubjects(data.data) 
+            }
+        }).catch((err)=>console.log(err))
+        
+    }, [renderSubjecs, subjects])    
 
     return(
         <>
-        {renderSubjecs}
-        <ListSubject>{{subjects : subjects, getRenderSubjecs : getRenderSubjecs}}</ListSubject>
+        {!subjects ? <LoadingOutlined 
+        style={{
+            display : 'block',
+            margin : 'auto',
+            marginTop : '200px',
+            fontSize : '100px'
+          }}
+          /> : <ListSubject>{{subjects : subjects, getRenderSubjecs : getRenderSubjecs, valueSubjects : renderSubjecs}}</ListSubject>  }
+        
         </>
         
     )

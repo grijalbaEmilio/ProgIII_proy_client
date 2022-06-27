@@ -10,16 +10,11 @@ export const getSubjects = async ()=>{
         return response.json();
       })
       .then(result => {
-          localStorage.setItem  ('subjects', JSON.stringify(result.data) )        
         return result;
       })
       .catch(err => {
         return err.message;
       });
-}
-
-export function arraySubjects(){
-    return JSON.parse(localStorage.getItem('subjects'))
 }
 
 export function deleteSubject(id){

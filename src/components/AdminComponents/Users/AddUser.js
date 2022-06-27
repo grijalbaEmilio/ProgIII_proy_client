@@ -9,7 +9,7 @@ import "./UserCRUD.scss";
 
 //console.log(useContext(contextModal))
 
-export default function EditUser(props) {
+export default function AddUsers(props) {
   const { setReloadUsers } = props;
   const [userData, setUserData] = useState({});
 

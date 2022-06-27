@@ -4,9 +4,28 @@ import './Home.scss'
 
 export default function SignIn() {
   return (
-    <>
-      <h1> Home page </h1>
-      <img className = "imagenHome"src="https://pro2-bar-s3-cdn-cf2.myportfolio.com/7e237d35-ee02-4cb9-8788-cffb9489850a/df509385-e236-436c-aa98-411596c153f8_rw_1920.gif?h=caf1919eb7a6b518b8ba087c22570903"/>
-    </>
+    <div className="home-main">
+      <h1> <i>
+        <b>Sistema de autenticación de usuarios y asignaturas</b>
+      </i> </h1>
+
+      <p className="user-admin">Podrá registrarse en el sistema, por defecto se le asignará un rol de coordinador,
+        el cuál le permitirá interactuar con un CRUD de asignaturas y visualizar los demás usuarios registrados.
+      </p>
+      <p className="user-admin">Sólo algunos usuarios con rol de administrador podrán interactuar con el CRUD de
+        usuarios en el cuál tendrá la posibilidad de desactivar-activar, eliminar, crear y modificar el rol de otros usuarios.
+      </p>
+
+      <div className="user-admin">
+        
+        <h4>
+          Administrador : admin@gmail.com
+        </h4>
+        <h4>
+          Contraseña : 123456
+        </h4>
+      </div>
+
+    </div>
   );
 }

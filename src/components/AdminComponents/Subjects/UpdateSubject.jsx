@@ -4,8 +4,8 @@ import { Button } from "antd";
 import { getSubjects } from '../../../api/subjects';
 import Toast from '../../Toast'
 import "./StylesSubjects.scss"
-export default function({children}){
-    const {setModal, getRenderSubjecs, subject } = children
+export default function Update({children}){
+    const {setModal, getRenderSubjecs, subject, valueSubjects } = children
     const [formSubject, setformSubect] = useState(
         {
             "department": subject.department,
@@ -138,10 +138,10 @@ export default function({children}){
                     }else{
                         getSubjects()
                         setTimeout(() => {
-                            getRenderSubjecs(true)
+                            getRenderSubjecs(!valueSubjects)
                             setModal(false)
                             Toast({mode : "success", message: "Asignatura actualizada !"})
-                        }, 3000);
+                        }, 500);
                     }
                 }
                 )
